@@ -1,0 +1,4 @@
+[30-Jan-2022 17:56:41 UTC] PHP Notice:  Undefined index: fav_hon_abo_fecha_1 in /home/w2eg6fbnqkl4/public_html/admin/reportes/honorarios.php on line 45
+[30-Jan-2022 17:56:41 UTC] PHP Notice:  Undefined index: fav_hon_abo_fecha_2 in /home/w2eg6fbnqkl4/public_html/admin/reportes/honorarios.php on line 47
+[30-Jan-2022 17:56:41 UTC] PHP Notice:  Undefined index: fav_hon_abo_fecha_3 in /home/w2eg6fbnqkl4/public_html/admin/reportes/honorarios.php on line 49
+[30-Jan-2022 17:56:41 UTC] PHP Notice:  Undefined index: fav_hon_abo_fecha_4 in /home/w2eg6fbnqkl4/public_html/admin/reportes/honorarios.php on line 51
