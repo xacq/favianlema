@@ -7,4 +7,9 @@
         echo '<script>window.location="../../error.php";</script>';
         exit();
     }
+
+    if (isset($_SESSION['force_password_change']) && $_SESSION['force_password_change'] === true){
+        header('location:../../registro.php?force=1');
+        exit();
+    }
 ?>
