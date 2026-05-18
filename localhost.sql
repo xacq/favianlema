@@ -23830,22 +23830,43 @@ CREATE TABLE `fav_login` (
   `fav_log_id` int(11) NOT NULL,
   `fav_log_nombre` varchar(50) NOT NULL,
   `fav_log_user` int(11) NOT NULL,
+  `fav_log_oficina_id` int(11) NOT NULL DEFAULT 1,
   `fav_log_correo` varchar(255) NOT NULL,
   `fav_log_contrasenia` varchar(255) NOT NULL,
   `fav_log_fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fav_oficinas`
+--
+
+CREATE TABLE `fav_oficinas` (
+  `fav_ofi_id` int(11) NOT NULL,
+  `fav_ofi_nombre` varchar(100) NOT NULL,
+  `fav_ofi_estado` varchar(10) NOT NULL DEFAULT 'activa',
+  `fav_ofi_fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `fav_oficinas`
+--
+
+INSERT INTO `fav_oficinas` (`fav_ofi_id`, `fav_ofi_nombre`, `fav_ofi_estado`, `fav_ofi_fecha_creacion`) VALUES
+(1, 'Oficina Principal', 'activa', current_timestamp());
+
 --
 -- Dumping data for table `fav_login`
 --
 
-INSERT INTO `fav_login` (`fav_log_id`, `fav_log_nombre`, `fav_log_user`, `fav_log_correo`, `fav_log_contrasenia`, `fav_log_fecha`) VALUES
-(12, 'FAVIAN LEMA', 0, 'favian.lema@hotmail.com', 'YouAndMe2202*', '2021-12-08 02:48:32'),
-(25, 'Xavier Calvas', 1, 'xacq@msn.com', '987654321', '2022-10-15 03:43:42'),
-(27, 'pamela2', 0, 'pamela@gmail.com', '987654321', '2023-02-02 19:10:46'),
-(29, 'ISABEL', 0, 'isabelortiz146@yahoo.com', '987654321', '2023-02-23 14:05:06'),
-(33, 'oficina1', 2, 'benditow@hotmail.com', '987654321', '2025-10-20 21:45:55'),
-(34, 'Santiago', 2, 'santiago07pallaroso@gmail.com', '987654321', '2025-12-10 13:58:14');
+INSERT INTO `fav_login` (`fav_log_id`, `fav_log_nombre`, `fav_log_user`, `fav_log_oficina_id`, `fav_log_correo`, `fav_log_contrasenia`, `fav_log_fecha`) VALUES
+(12, 'FAVIAN LEMA', 0, 1, 'favian.lema@hotmail.com', 'YouAndMe2202*', '2021-12-08 02:48:32'),
+(25, 'Xavier Calvas', 1, 1, 'xacq@msn.com', '987654321', '2022-10-15 03:43:42'),
+(27, 'pamela2', 0, 1, 'pamela@gmail.com', '987654321', '2023-02-02 19:10:46'),
+(29, 'ISABEL', 0, 1, 'isabelortiz146@yahoo.com', '987654321', '2023-02-23 14:05:06'),
+(33, 'oficina1', 2, 1, 'benditow@hotmail.com', '987654321', '2025-10-20 21:45:55'),
+(34, 'Santiago', 2, 1, 'santiago07pallaroso@gmail.com', '987654321', '2025-12-10 13:58:14');
 
 -- --------------------------------------------------------
 
@@ -26947,7 +26968,15 @@ ALTER TABLE `fav_honorarios`
 --
 ALTER TABLE `fav_login`
   ADD PRIMARY KEY (`fav_log_id`),
+  ADD KEY `fav_log_oficina_id` (`fav_log_oficina_id`),
   ADD UNIQUE KEY `fla_log_fecha` (`fav_log_fecha`);
+
+--
+-- Indexes for table `fav_oficinas`
+--
+ALTER TABLE `fav_oficinas`
+  ADD PRIMARY KEY (`fav_ofi_id`),
+  ADD UNIQUE KEY `fav_ofi_nombre` (`fav_ofi_nombre`);
 
 --
 -- Indexes for table `fav_penal`
@@ -27058,6 +27087,12 @@ ALTER TABLE `fav_honorarios`
 --
 ALTER TABLE `fav_login`
   MODIFY `fav_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `fav_oficinas`
+--
+ALTER TABLE `fav_oficinas`
+  MODIFY `fav_ofi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `fav_penal`

@@ -1,6 +1,7 @@
 <?php
   require_once("./config/ver.php");
   require_once("./template/head.php");  
+  include("./config/db.php");mysqli_query($conexion, "SET time_zone = 'America/Guayaquil'");
   date_default_timezone_set('America/Guayaquil');  
 ?>
 
@@ -34,6 +35,18 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">  
                 <label >Nombre</label> 
                   <input name="nombre" class="normal_input_little maximus"  onkeypress="return valideKeys(event);" required> </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                  <label>Oficina</label>
+                  <select name="oficina_id" class="normal_input_little" required>
+                    <option value="">Seleccione una opción</option>
+                    <?php
+                      $res_ofi = mysqli_query($conexion, "SELECT * FROM fav_oficinas WHERE fav_ofi_estado='activa' ORDER BY fav_ofi_nombre asc");
+                      while ($ofi = mysqli_fetch_array($res_ofi)){
+                    ?>
+                      <option value="<?php echo $ofi['fav_ofi_id']; ?>"><?php echo $ofi['fav_ofi_nombre']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
                   <div class="col-md-12 col-sm-12 col-xs-12">  
                 <label >Correo Electronico</label> 
                   <input type="email" name="correo" class="normal_input_little" required> </div>                            

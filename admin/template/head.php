@@ -130,6 +130,9 @@
                     <a class="dropdown-item active"  href="./usuarios.php">Nuevo Usuario</a>
                     <a class="dropdown-item"  href="./lists/lists_usuarios.php">Lista de Usuarios</a>
                     <hr class="dropdown-divider">
+                    <a class="dropdown-item"  href="./oficinas.php">Nueva Oficina</a>
+                    <a class="dropdown-item"  href="./lists/lists_oficinas.php">Lista de Oficinas</a>
+                    <hr class="dropdown-divider">
                     <a class="dropdown-item"  href="./actions/buscar_codigo.php">Editar Código</a>
                     <hr class="dropdown-divider">
                     <a class="dropdown-item"  href="./lists/lists_ingresos_today.php">Registro Diario</a>
@@ -148,5 +151,4 @@
 
 
  
-
 

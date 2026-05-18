@@ -75,6 +75,7 @@ if (isset($_POST['login_ingresar']))
 	                        $_SESSION['role'] = "Administrador";
 	                        $_SESSION['email'] = $row_user['fav_log_correo'];
 	                        $_SESSION['name'] = $row_user['fav_log_nombre'];
+	                        $_SESSION['oficina_id'] = (int)$row_user['fav_log_oficina_id'];
 	                        $_SESSION['force_password_change'] = $requiresPasswordChange;
 	                        $_SESSION['user_id'] = (int)$row_user['fav_log_id'];
 	                        if ($requiresPasswordChange) {
@@ -91,6 +92,7 @@ if (isset($_POST['login_ingresar']))
 	                        $_SESSION['role'] = "Administrador Auxiliar";
 	                        $_SESSION['email'] = $row_user['fav_log_correo'];
 	                        $_SESSION['name'] = $row_user['fav_log_nombre'];
+	                        $_SESSION['oficina_id'] = (int)$row_user['fav_log_oficina_id'];
 	                        $_SESSION['force_password_change'] = $requiresPasswordChange;
 	                        $_SESSION['user_id'] = (int)$row_user['fav_log_id'];
 	                        if ($requiresPasswordChange) {
@@ -107,6 +109,7 @@ if (isset($_POST['login_ingresar']))
 	                        $_SESSION['role'] = "Usuario General";
 	                        $_SESSION['email'] = $row_user['fav_log_correo'];
 	                        $_SESSION['name'] = $row_user['fav_log_nombre'];
+	                        $_SESSION['oficina_id'] = (int)$row_user['fav_log_oficina_id'];
 	                        $_SESSION['force_password_change'] = $requiresPasswordChange;
 	                        $_SESSION['user_id'] = (int)$row_user['fav_log_id'];
 	                        if ($requiresPasswordChange) {
@@ -123,6 +126,7 @@ if (isset($_POST['login_ingresar']))
 	                        $_SESSION['role'] = "Administrador de Caja";
 	                        $_SESSION['email'] = $row_user['fav_log_correo'];
 	                        $_SESSION['name'] = $row_user['fav_log_nombre'];
+	                        $_SESSION['oficina_id'] = (int)$row_user['fav_log_oficina_id'];
 	                        $_SESSION['force_password_change'] = $requiresPasswordChange;
 	                        $_SESSION['user_id'] = (int)$row_user['fav_log_id'];
 	                        if ($requiresPasswordChange) {
