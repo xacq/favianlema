@@ -28,6 +28,7 @@
                     <th scope="col" >Fecha</th>
                     <th scope="col">Usuario</th>
                     <th scope="col">Correo</th>
+                    <th scope="col">Oficina</th>
                     <th scope="col">Tipo de Usuario</th>
 
                   </tr>
@@ -35,7 +36,7 @@
                 <tbody>
                   <?php
                   include("../config/db.php");mysqli_query($conexion, "SET time_zone = 'America/Guayaquil'");
-                  $query = "SELECT * FROM fav_login WHERE fav_log_user <> 0 ORDER BY fav_log_fecha desc";
+                  $query = "SELECT l.*, o.fav_ofi_nombre FROM fav_login l LEFT JOIN fav_oficinas o ON o.fav_ofi_id = l.fav_log_oficina_id WHERE l.fav_log_user <> 0 ORDER BY l.fav_log_fecha desc";
                   $resultado = mysqli_query($conexion, $query);
                   while ($row = mysqli_fetch_array($resultado)){?>
                     <tr style="font-size:small;">
@@ -43,6 +44,7 @@
                       <td class="text-center"><?php echo $row['fav_log_fecha']?></td>
                       <td class=" maximus"><?php echo $row['fav_log_nombre']?></td>
                       <td><?php echo $row['fav_log_correo']?></td>
+                      <td><?php echo $row['fav_ofi_nombre']?></td>
                       <td><?php
                           if ($row['fav_log_user'] == 0){
                             echo "Administrador";

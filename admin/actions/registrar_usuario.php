@@ -8,10 +8,13 @@ if (isset($_POST['guardar_usuario']))
         $vara = $_POST['usuario'];
         $varb = $_POST['nombre'];
         $varc = $_POST['correo'];
+        $vard = $_POST['oficina_id'];
         
         //echo "$vara, $varb, $varc";
-        $consulta = "INSERT INTO fav_login (fav_log_nombre,fav_log_user,fav_log_correo,fav_log_contrasenia,fav_log_fecha) 
-        VALUES ('$varb','$vara','$varc','987654321',current_timestamp())";
+        $defaultPassword = '987654321';
+        $defaultPasswordHash = password_hash($defaultPassword, PASSWORD_DEFAULT);
+        $consulta = "INSERT INTO fav_login (fav_log_nombre,fav_log_user,fav_log_oficina_id,fav_log_correo,fav_log_contrasenia,fav_log_fecha) 
+        VALUES ('$varb','$vara','$vard','$varc','$defaultPasswordHash',current_timestamp())";
 
         $resultado = mysqli_query($conexion, $consulta);
         //echo "$resultado";
